@@ -1,0 +1,46 @@
+{% extends "connection/connection_main.html" %}
+{% load static %}
+
+{% block button_header %}
+    <a href="#" class="unvisble_button"></a>
+{% endblock button_header %}
+
+
+{% block list %}
+    <li><a href="{% url "private_house" %}" class="secondery_variant">Интернет</a></li>
+    <li class="selecter_secondery"><a href="{% url "connection_for_business" %}" class="secondery_variant">Для бизнеса</a></li>
+{% endblock list %}
+
+
+{% block content %}
+    <main>
+        <div class="vacancies">
+            <h2>Вакансии</h2>
+        </div>
+        <div class="want_work_with_you">
+            <div class="text_block_for_career">
+                <h3>Хочу работать у вас!</h3>
+                <p>Если вы не нашли подходящую вокансию, отправьте нам свое резюме.</p>
+            </div>
+            <div class="bid_for_career">
+                <form action="" class="form_for_career">
+                    <div class="form_group_for_career">
+                        <input type="text" class="form_control_for_career first_element_for_element" id="name_career" required placeholder=" ">
+                        <label for="name_career">Как вас зовут</label>
+                    </div>
+                    <div class="form_group_for_career">
+                        <input type="text" class="form_control_for_career" id="number_career" required placeholder=" ">
+                        <label for="number_career">Номер телефона</label>
+                    </div>
+                    <div class="file_for_career">
+                        <label for="file" class=><img src="{% static "connection/images/icon_for_file.svg" %}" alt=""></label>
+                        <label for="file" class="label_last_file_career">Прикрепить резюме</label>
+                        <input type="file" id='file' multiple>
+                    </div>
+                    <button type="submit">Отправить</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+{% endblock content %}

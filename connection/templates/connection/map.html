@@ -1,0 +1,24 @@
+{% extends "connection/connection_main.html" %}
+{% load static %}
+
+{% block button_header %}
+    {% comment %} <a href="#hello_for_bisnues" class="btn">Подключиться</a>  {% endcomment %}
+    <a href="#" class="unvisble_button"></a>
+{% endblock button_header %}
+
+{% block list %}
+    <li><a href="{% url "private_house" %}" class="secondery_variant">Интернет</a></li>
+    <li class="selecter_secondery"><a href="{% url "connection_for_business" %}" class="secondery_variant">Для бизнеса</a></li>
+    <li><a href="{% url "map" %}" class="main_variant">Карта</a></li>
+    <!--<li><a href="{% url "interactiv_tv" %}" class="secondery_variant">Интерактивное ТВ</a></li>-->
+{% endblock list %}
+
+{% block content %}
+    <main>
+        <div class="conteiner">
+            <h1 class="map_h2">Карта присутствия</h1>
+            <p><span>*</span>вы можете <a href="{% url "private_house" %}#bid">подключиться</a>, даже если на карте вы не нашли свой населенный пунт.</p>
+            <div class="map" id="map-presence"></div>
+        </div>
+    </main>
+{% endblock content %}

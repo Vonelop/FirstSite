@@ -1,0 +1,91 @@
+{% extends "connection/connection_main.html" %}
+{% load static %}
+
+
+{% block button_header %}
+    <a href="#hello_for_bisnues" class="btn">Подключиться</a> 
+    {% comment %} <a href="#" class="unvisble_button"></a> {% endcomment %}
+{% endblock button_header %}
+
+
+{% block list %}
+    <li><a href="{% url "private_house" %}" class="secondery_variant">Интернет</a></li>
+    <li class="selecter_secondery"><a href="{% url "connection_for_business" %}" class="main_variant">Для бизнеса</a></li>
+    <li><a href="{% url "map" %}" class="secondery_variant">Карта</a></li>
+    <!--<li><a href="{% url "interactiv_tv" %}" class="secondery_variant">Интерактивное ТВ</a></li>-->
+{% endblock list %}
+
+
+{% block content %}
+    
+    <main>
+        <div class="conteiner_tagline">
+           <div class="tagline">Развивайся вместе с нами!</div> 
+        </div>
+        <div class="text_companys">Наши партнеры</div>
+        <div class="owl-carousel owl-theme carousel_for_bisnues">
+            <div class="sber_logo"> <img src="{% static "connection/images/Sberbank_Logo_2020.svg" %}" alt=""> </div>
+            <div class="megafon_logo"> <img src="{% static "connection/images/Megafon_Logo.svg" %}" alt=""> </div>
+            <div class="dom_ru_logo"> <img src="{% static "connection/images/Dom_Ru_Logo.svg" %}" alt=""> </div>
+            <div class="nauka_logo"> <img src="{% static "connection/images/Nauka_Logo.svg" %}" alt=""> </div>
+            <div class="magnit_logo"> <img src="{% static "connection/images/Magnit_Logo.svg" %}" alt=""> </div>
+            <div class="x5group_logo"> <img src="{% static "connection/images/X5Group_Logo.svg" %}" alt=""> </div>
+        </div>
+        <div class="line"></div>
+        <div class="hello_for_bisnues" id="hello_for_bisnues">
+            <div class="hello_block_text">
+                <h2><span>Доступ в Интернет</span> для организаций</h2>
+                <p><span>РегионСвязь</span> за долгострочную взаимную работу друг с другом. В нашем списке больше 50 довольных партнеров, которые по сегоднешний день пользуются нашими услугами.
+                    Присоединяйся и развивайся вместе с нами!</p>
+            </div>
+            <div class="bid_for_bisnues" id="bid_for_bisnues">
+                <form class="form_for_bisnues" method="POST" id="post-form-business">
+                    {% csrf_token %}
+                    <div class="form_group_for_bisnues">
+                        <input type="text" id="name_bisnues" name="name_bisnues" class="form_control_for_bisnues" required placeholder=" ">
+                        <label for="name_bisnues">Как к вам обращаться</label>
+                    </div>
+                    <div class="form_group_for_bisnues">
+                        <input type="text" id="locality_for_bisnues" name="locality_for_bisnues" class="form_control_for_bisnues" required placeholder=" ">
+                        <label for="locality_for_bisnues">Координаты или название населенного пункта</label>    
+                    </div>
+                    <div class="form_group_for_bisnues">
+                        <input type="text" id="number_for_bisnues" name="number_for_bisnues" class="form_control_for_bisnues" required placeholder=" ">
+                        <label for="number_for_bisnues">Номер телефона</label>
+                    </div>
+                    <button type="submit">Проконсультируйте меня</button>
+                </form>
+            </div>
+        </div>
+        <div class="modal js-overlay-thank-you">
+            <div class="modal-window js-thank-you">
+                <p>Спасибо за вашу заявку!</p>
+                <p>Мы свяжемся с вами в ближайшее время.</p>
+                <div class="close_popup js-close-thank-you"></div>
+            </div>
+            <div class="overlay"></div>
+        </div>
+        <div class="about_technologis">
+            <div class="text_technologis">
+                <h3>Используемые технологии</h3>
+                <div class="block_p">
+                    <p>Проводной интернет представляет собой один из наиболее надежных способов доступа в интернет, который использует различные технологии и оборудование для передачи данных. Технологии, которые мы используем - FTTB и GPON.</p>
+                    <p>FTTB (Fiber To The Building) и FTTP (Fiber To The Premises) — это технологии, основанные на использовании оптоволоконных кабелей до здания или непосредственно до помещения пользователя. Эти технологии обеспечивают очень высокие скорости интернет-соединения. Основное оборудование включает оптоволоконные кабели, терминальное оборудование и специальные модемы.</p>
+                    <p>GPON (Gigabit Passive Optical Network) — это технология, которая также использует оптоволокно для достижения еще более высоких скоростей интернета. Она предполагает использование пассивных оптических разветвителей, которые не требуют электропитания для передачи сигналов.</p>
+                    <p> Все устанавливаемое оборудование имеет сертификаты соответствия в системе сертификации «Связь» (ССС). Всё оборудование и материалы отвечают требованиям нормативов СанПиН 2.2.2/2.4.1340-03м.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="{% static "connection/js/form_private_house.js" %}"></script>
+    <script src="{% static "connection/js/jquery.maskedinput.js" %}"></script>
+
+    <script src="{% static "connection/js/jquery.js" %}"></script>
+    <script src=" {% static "connection/js/owl.carousel.min.js" %}"></script>
+    <script src="{% static "connection/js/script.js" %}"></script>
+
+
+{% endblock content %}
+

@@ -1,0 +1,65 @@
+{% load static %} <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>РегионСвязь - Тверской Интернет-провайдер</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'connection/css/main_page.css' %}">
+    <link rel="stylesheet" href="{% static "connection/css/responcive.css" %}">
+    <link rel="stylesheet" href=" {% static "connection/css/owl.carousel.min.css" %}">
+    <link rel="stylesheet" href=" {% static "connection/css/owl.theme.default.min.css" %}">
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=d38e0e5c-239d-4e15-93f9-bd322b71c747&lang=ru_RU"></script>
+    <script src="{% static "connection/js/map.js" %}"></script>
+    <meta name="des">
+</head>
+
+<body> 
+    <header>
+        <div class="logo">
+            <a href="{% url "private_house" %}">
+                <img src="{% static "connection/images/small_logo.svg" %}" />
+            </a>
+        </div>
+        <h1><a href="{% url "private_house" %}" class="name_logo">РегионСвязь</a></h1>
+        <div class="menu">
+            <ul>
+                {% block list %}
+                {% endblock list %}
+            </ul>
+        </div>
+        {% block button_header %}
+        {% endblock button_header %}
+    </header>
+
+    {% block content %}
+    {% endblock content %}
+
+    <footer>
+        <div class="footer">
+            <ul class="footer_list_first">
+                <li class="regsv">РегионСвязь</li>
+                <li class="helper">Служба поддержки</li>
+                <li class="number">84822666101</li>
+                <li class="buyer">Отдел продаж</li>
+                <li class="number">84822750804</li>
+            </ul>
+            <ul class="footer_list_second">
+                <li class="address">Адрес</li>
+                <li class="name_point_main">Центральный офис</li>
+                <li class="location">г. Тверь, Волоколамский пр-т, д.39</li>
+                <li class="name_point">Дополнительный офис</li>
+                <li class="location">г. Тверь, наб. А.Никитина, д.74</li>
+            </ul>
+           {% comment %}<ul class="footer_list_third">
+                <li class="company">Компания</li>
+                <li class="career"><a href="{% url "map" %}">Карты присутствия</a></li>
+                 <li class="career"><a href="{% url "career" %}">Карьера</a></li>
+            </ul> {% endcomment %}
+        </div>
+    </footer>
+</body>
+
+</html>

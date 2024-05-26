@@ -1,0 +1,12 @@
+<p>{{first_name}} {{second_name}} хочет подключиться</p>
+<p>Его номер телефона: {{phone_number}}</p>
+<p>В населенном пункте: {{locality}}</p>
+{% if name_street %}
+<p>Улица: {{name_street}}</p>
+{% endif %}
+{% if home_number %}
+<p>Номер дома: {{home_number}}</p>
+{% endif %}
+{% if apartment_number %}
+<p>Номер квартиры: {{apartment_number}}</p>
+{% endif %}

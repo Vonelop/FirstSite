@@ -1,0 +1,12 @@
+{% extends "connection/connection_main.html" %}
+{% load static %}
+
+{% block button_header %}
+    <a href="#" class="unvisble_button"></a>
+{% endblock button_header %}
+
+{% block list %}
+    <li><a href="{% url "private_house" %}" class="secondery_variant">В частный дом</a></li>
+    <li class="selecter_secondery"><a href="{% url "connection_for_business" %}" class="secondery_variant">Для бизнеса</a></li>
+    <li><a href="{% url "interactiv_tv" %}" class="main_variant">Интерактивное ТВ</a></li>
+{% endblock list %}

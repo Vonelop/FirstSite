@@ -1,0 +1,121 @@
+{% extends "connection/connection_main.html" %}
+{% load static %}
+
+{% block button_header %}
+    <a href="#bid" class="btn">Подключиться</a> 
+{% endblock button_header %}
+
+
+{% block list %}
+    <li><a href="{% url "private_house" %}" class="main_variant">Интернет</a></li>
+    <li class="selecter_secondery"><a href="{% url "connection_for_business" %}" class="secondery_variant">Для бизнеса</a></li>
+    <li><a href="{% url "map" %}" class="secondery_variant">Карта</a></li>
+    <!--<li><a href="{% url "interactiv_tv" %}" class="secondery_variant">Интерактивное ТВ</a></li>-->
+{% endblock list %}
+
+
+{% block content %}
+    <main>
+        <div class="hello-block-flex">
+            <div class="hello-block">
+                <div class="txt-hello-block-flex">
+                    <div class="txt-hello-block">
+                        <h2><p>Подключим проводной интеренет там, где никто не может!</p></h2>
+                    </div>
+                </div>
+                <img src="{% static "connection/images/img_women_main_page.svg" %}">
+            </div> 
+        </div>
+        <div class="about_company">
+            <div class="text">
+                <h3>О компании</h3>
+                <p><span class="span_one">РегионСвязь</span> предоставляет услуги доступа в Интернет по оптоволокну и телевидения в пределах Тверской обл, которые вы можете увидеть на нашей <a href="{% url "map" %}"><span class="span_two">карте</span></a>. Мы работаем на этом рынке уже более 10 лет и с каждым годом развиваем нашу сеть в районах Тверской обл. </p>
+            </div>
+            <img src="{% static "connection/images/tall_logo.svg" %}">
+        </div>
+        <div class="line"></div>
+        <div class="why_not">
+            <h4>Почему РегионСвязь?</h4>
+            <div class="arguments">
+                <div class="first_a">
+                    <img src="{% static "connection/images/icon_web.svg" %}">
+                    <p>Подключаем в самых труднодоступных местах</p>
+                </div>
+                <div class="second_a">
+                    <img src="{% static "connection/images/icon_like.svg" %}">
+                    <p>Используем современные технологии подключения</p>
+                </div>
+                <div class="the_third_a">
+                    <img src="{% static "connection/images/icon_pie.svg" %}">
+                    <p>Подключаем в короткие сроки</p>
+                </div>
+            </div>
+        </div>
+        <div class="bid" id="bid">
+            <h3>Заявка на подключение</h3>
+            <div class="bid-panel">
+                <form class="action" method="POST" id="post-form">
+                    {% csrf_token %}
+                    <div class="first_form">
+                        <div class="form_group">
+                            <input type="text" id="locality" name="locality" class="form_control" required placeholder=" ">
+                            <label for="locality">Координаты или название населенного пункта</label>
+                        </div>
+                        <div class="form_group">
+                            <input type="text" id="name_street" name="name_street" class="form_control" placeholder=" ">
+                            <label for="name_street">Улица (не обязательно)</label>
+                        </div>
+                        <div class="form_group">
+                            <input type="text" id="home_number" name="home_number" class="form_control" placeholder=" ">
+                            <label for="home_number">Дом (не обязательно)</label>
+                        </div>
+                        <div class="form_group">
+                            <input type="text" id="apartment_number" name="apartment_number" class="form_control" placeholder=" ">
+                            <label for="apartment_number">Квартира (не обязательно)</label>
+                        </div>
+                    </div>
+                    <div class="second_form">
+                        <div class="form_group">
+                            <input type="text" id="first_name" name="first_name" class="form_control" required placeholder=" ">
+                            <label for="first_name">Имя</label>
+                        </div>
+                        <div class="form_group">
+                            <input type="text" id="second_name" name="second_name" class="form_control" placeholder=" ">
+                            <label for="second_name">Фамилия (не обязательно)</label>
+                        </div>
+                        <div class="form_group">
+                            <input onclick="moveCaretToStart(this)" type="text" id="phone_number" name="phone_number" class="form_control" required placeholder=" ">
+                            <label for="phone_number">Номер телефона</label>
+                        </div>
+                        <button type="submit">Подключить</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="modal js-overlay-thank-you">
+            <div class="modal-window js-thank-you">
+                <p>Спасибо за вашу заявку!</p>
+                <p>Мы свяжемся с вами в ближайшее время.</p>
+                <div class="close_popup js-close-thank-you"></div>
+            </div>
+            <div class="overlay"></div>
+        </div>
+        <div class="about_technologis">
+            <div class="text_technologis">
+                <h3>Используемые технологии</h3>
+                <div class="block_p">
+                    <p>Проводной интернет представляет собой один из наиболее надежных способов доступа в интернет, который использует различные технологии и оборудование для передачи данных. Технологии, которые мы используем - FTTB и GPON.</p>
+                    <p>FTTB (Fiber To The Building) — это технология, основанная на использовании оптоволоконных кабелей до здания или непосредственно до помещения пользователя. Эти технологии обеспечивают очень высокие скорости интернет-соединения. Основное оборудование включает оптоволоконные кабели, терминальное оборудование и специальные модемы.</p>
+                    <p>GPON (Gigabit Passive Optical Network) — это технология, которая также использует оптоволокно для достижения еще более высоких скоростей интернета. Она предполагает использование пассивных оптических разветвителей, которые не требуют электропитания для передачи сигналов.</p>
+                    <p> Все устанавливаемое оборудование имеет сертификаты соответствия в системе сертификации «Связь» (ССС). Всё оборудование и материалы отвечают требованиям нормативов СанПиН 2.2.2/2.4.1340-03м.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="{% static "connection/js/form_private_house.js" %}"></script>
+    <script src="{% static "connection/js/jquery.maskedinput.js" %}"></script>
+
+{% endblock content %}
